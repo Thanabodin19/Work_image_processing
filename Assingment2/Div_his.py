@@ -32,7 +32,7 @@ def Split_img(img, X_points, Y_points, split_height, split_width, mean, gamma_hi
     h_cut = split_height//3
     w_cut = split_width//3
     
-    banner = Image.new('RGBA',(1920,1080))
+    banner = Image.new('RGBA',(img_w,img_h))
 
     for i in Y_points:
         count = 0
