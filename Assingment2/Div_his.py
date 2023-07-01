@@ -38,8 +38,9 @@ def Split_img(img, X_points, Y_points, split_height, split_width, mean, gamma_hi
         count = 0
         for j in X_points:
             split = img[i:i+split_height, j:j+split_width]
-
-            average = np.mean(split)/255
+            img_gray = cv.cvtColor(split, cv.COLOR_BGR2GRAY)
+            img_eq = cv.equalizeHist(img_gray)
+            average = np.mean(img_eq)//255
 
             if average < mean:
                 gamma_corrected = (split/255)**gamma_low
